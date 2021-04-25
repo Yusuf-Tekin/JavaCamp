@@ -12,7 +12,7 @@ public class DaysManager {
 		
 	}
 	
-	public void ShowContent() { // Günler için bilgilerini döndürür
+	public void ShowContent() { // GÃ¼nler iÃ§in bilgilerini dÃ¶ndÃ¼rÃ¼r
 		for(Days day : days) {
 			
 			System.out.println("Day Id:" + day.id + "\nDay Name:" + day.dayName + "\nDay Date:" + day.date  + "\n-------------");
@@ -23,7 +23,7 @@ public class DaysManager {
 	
 	public void deleteDay(Days day) {
 		System.out.println(days.remove(day));
-		System.err.println(day.dayName + " adlı gün silindi.");
+		System.err.println(day.dayName + " deleted.");
 	}
 	
 }
