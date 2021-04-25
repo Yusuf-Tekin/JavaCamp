@@ -28,7 +28,7 @@ public class HomeworkManager {
 		
 		System.out.println(homeworks.remove(homework));
 		
-		System.err.println(homework.name + " adlý ödev silindi.");
+		System.err.println(homework.name + " homework is deleted.");
 	}
 
 }
