@@ -1,18 +1,18 @@
 
 public class Instructor extends User{
 	
-	private String bio; // Bu field ise sadece instructor'a ait olduðunu düþünelim.
+	private String bio; // Bu field ise sadece instructor'a ait olduÃ°unu dÃ¼Ã¾Ã¼nelim.
 	
 	public Instructor(String bio) {
 		this.bio = bio;
 	}
 	
-	public void addLesson(Lesson lesson) { // Only ýnstructor method
+	public void addLesson(Lesson lesson) { // Only instructor method
 		lesson.add(lesson);
 	}
 	
 	
-	public void deleteLesson(Lesson lesson) {// Only ýnstructor method
+	public void deleteLesson(Lesson lesson) {// Only instructor method
 		lesson.delete(lesson);
 	}
 	
