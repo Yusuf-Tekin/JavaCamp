@@ -7,8 +7,6 @@ public class Student extends User {
 		this.studentNumber = studentNumber;
 	}
 	
-	public void Completed(Lesson lesson) {  // Instructor & Student method
-		lesson.Completed(lesson);
-	}
+	
 
 }
