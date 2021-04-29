@@ -19,7 +19,7 @@ public class Main {
 		student1.setUsername("yusuf.tekinx");
 		student1.setPassword("123456789");
 		student1.setId(2);
-		
+		userManager.Add(student1);
 		student1.Completed(lesson1); // Instructor's added lesson is completed by student1
 		
 		Student student2 = new Student("254");

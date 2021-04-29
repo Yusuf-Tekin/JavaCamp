@@ -18,6 +18,6 @@ public class Instructor extends User{
 	
 	
 	public void completedLesson(Lesson lesson) { // Instructor & Student method
-		lesson.Completed();
+		lesson.Completed(lesson);
 	}
 }

@@ -8,7 +8,7 @@ public class Student extends User {
 	}
 	
 	public void Completed(Lesson lesson) {  // Instructor & Student method
-		lesson.Completed();
+		lesson.Completed(lesson);
 	}
 
 }

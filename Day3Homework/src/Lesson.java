@@ -14,18 +14,34 @@ public class Lesson {
 	}
 	
 	public void add(Lesson lesson) {
-		System.out.println(title + " lesson added");
+		System.out.println(lesson.getTitle() + " adlý ders eklendi");
 		
 		lessons.add(lesson);
 	}
 	
 	public void delete(Lesson lesson) { 
-		System.out.println(title + " lesson deleted");
+		System.out.println(lesson.getTitle()  + " adlý ders silindi");
 		lessons.remove(lesson);
 	}
 	
-	public void Completed() {
-		System.out.println(title + " lesson completed");
+	public void Completed(Lesson lesson) {
+		System.out.println(lesson.getTitle()  + " adlý ders tamamlandý");
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 }
