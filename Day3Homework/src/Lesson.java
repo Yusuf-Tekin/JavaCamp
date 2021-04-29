@@ -14,18 +14,18 @@ public class Lesson {
 	}
 	
 	public void add(Lesson lesson) {
-		System.out.println(title + " adlý ders eklendi");
+		System.out.println(title + " lesson added");
 		
 		lessons.add(lesson);
 	}
 	
 	public void delete(Lesson lesson) { 
-		System.out.println(title + " adlý ders silindi");
+		System.out.println(title + " lesson deleted");
 		lessons.remove(lesson);
 	}
 	
 	public void Completed() {
-		System.out.println(title + " adlý ders tamamlandý");
+		System.out.println(title + " lesson completed");
 	}
 	
 }
