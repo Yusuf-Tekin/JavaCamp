@@ -33,7 +33,7 @@ public class jobpositioncontroller{
 	
 	@PostMapping("/addPosition")
 	public String addPosition(@RequestBody JobPosition position) {
-		if(position != null) {
+		if(!position.equals(null)) {
 			this.jobPositionService.addPosition(position);
 			return "Pozisyon Eklendi";
 		}
