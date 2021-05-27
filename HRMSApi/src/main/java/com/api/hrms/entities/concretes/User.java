@@ -3,41 +3,39 @@ package com.api.hrms.entities.concretes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import com.api.hrms.entities.abstracts.IUser;
 @Entity
-@Table(name = "Users")
-public class User implements IUser{
+@Table(name = "users")
+public class user {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	
 	@Column(name = "email")
 	private String email;
-
+	
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "rePassword")
-	private String rePassword;
+	@Column(name = "repassword")
+	private String repassword;
 	
-	@Column(name = "accountConfirmation")
-	private boolean accountConfirm;
-	
-	public void Users() {
-		
+	public user() {
+		super();
 	}
 
-	public User(int id, String email, String password, String rePassword, boolean accountConfirm) {
+	public user(int id, String email, String password, String repassword) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
-		this.rePassword = rePassword;
-		this.accountConfirm = accountConfirm;
+		this.repassword = repassword;
 	}
 
 	public int getId() {
@@ -64,22 +62,14 @@ public class User implements IUser{
 		this.password = password;
 	}
 
-	public String getRePassword() {
-		return rePassword;
+	public String getRepassword() {
+		return repassword;
 	}
 
-	public void setRePassword(String rePassword) {
-		this.rePassword = rePassword;
-	}
-
-	public boolean isAccountConfirm() {
-		return accountConfirm;
-	}
-
-	public void setAccountConfirm(boolean accountConfirm) {
-		this.accountConfirm = accountConfirm;
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
 	}
 	
 	
-	
+
 }

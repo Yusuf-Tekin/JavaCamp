@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.api.hrms.business.abstracts.JobPositionService;
+import com.api.hrms.core.jobposition.JobPositionControl;
+import com.api.hrms.core.results.Result;
+import com.api.hrms.core.results.success.SuccessDataResult;
 import com.api.hrms.dataAccess.abstracts.JobPositionDao;
 import com.api.hrms.entities.concretes.JobPosition;
 
@@ -28,14 +31,12 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 	@Override
-	public void addPosition(JobPosition position) {
+	public void addPosition(JobPosition position,JobPositionControl jobpositioncontrol) {
 		this.jobpositionDao.save(position);
 	}
 
 	@Override
-	public void deletePosition(int id) {
-		
-		
+	public void deletePosition(Integer id) {
+		this.jobpositionDao.deleteById(id);
 	}
-
 }
