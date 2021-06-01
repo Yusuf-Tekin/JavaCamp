@@ -5,10 +5,10 @@ public class PasswordControl implements PasswordControlAbs{
 	@Override
 	public boolean PasswordControlAbs(String password, String rePassword) {
 		if(!password.equals(rePassword)) {
-			return true;
+			return false;
 		}
 		else {
-			return false;
+			return true;
 		}
 	}
 

@@ -1,5 +1,7 @@
 package com.api.hrms.entities.concretes;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +26,9 @@ public class activation_code implements ActivationCode{
 	@Column(name = "is_confirmed")
 	private boolean is_confirmed;
 	
+	@Column(name = "activation_date")
+	private Date date;
+	
 	@Column(name = "user_id")
 	private int user_id;
 
@@ -31,12 +36,13 @@ public class activation_code implements ActivationCode{
 		super();
 	}
 
-	public activation_code(int id, String activation_code, boolean is_confirmed, int user_id) {
+	public activation_code(int id, String activation_code, boolean is_confirmed, int user_id,Date date) {
 		super();
 		this.id = id;
 		this.activation_code = activation_code;
 		this.is_confirmed = is_confirmed;
 		this.user_id = user_id;
+		this.date = date;
 	}
 
 	public int getId() {
@@ -69,6 +75,14 @@ public class activation_code implements ActivationCode{
 
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	

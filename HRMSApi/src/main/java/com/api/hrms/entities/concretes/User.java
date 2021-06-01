@@ -1,20 +1,21 @@
 package com.api.hrms.entities.concretes;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 @Entity
 @Table(name = "users")
 public class user {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id",nullable = false)
 	private int id;
 	
 	@Column(name = "email")
@@ -26,17 +27,28 @@ public class user {
 	@Column(name = "repassword")
 	private String repassword;
 	
+	@Column(name = "joineddate")
+	private Date joineddate;
 	public user() {
 		super();
 	}
+	
+	@OneToMany(mappedBy = "job_seeker_users")
+	private List<job_seeker_users> job_seeker_users;
+	
 
-	public user(int id, String email, String password, String repassword) {
+	
+
+	public user(int id, String email, String password, String repassword, Date date) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.repassword = repassword;
+		this.joineddate = date;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -68,6 +80,14 @@ public class user {
 
 	public void setRepassword(String repassword) {
 		this.repassword = repassword;
+	}
+
+	public Date getDate() {
+		return joineddate;
+	}
+
+	public void setDate(Date date) {
+		this.joineddate = date;
 	}
 	
 	

@@ -1,8 +1,15 @@
 package com.api.hrms.entities.concretes;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "employer_users")
@@ -22,6 +29,9 @@ public class employer_users extends user{
 	
 	@Column(name = "is_activated")
 	private boolean is_Activated;
+	
+	
+
 	
 	public employer_users() {
 		super();

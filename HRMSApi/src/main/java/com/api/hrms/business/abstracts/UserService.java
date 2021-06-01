@@ -22,7 +22,6 @@ public interface UserService {
 	
 	public Result addEmployerUser(employer_users user,EmailRegex regexControl,EmailControl emailControl,EmailDomainControl emailDomainControl,PasswordControl passwordControl);
 	public Result addSystemUser(system_users user,PasswordControl passwordControl);
-	public Result addJobSeekerUser(job_seeker_users user,EmailRegex regexControl,EmailControl emailControl,IdentityControl identityControl,mernisControl mernisControl,PasswordControl passwordControl);
 
 	
 	public List<user> getUsers();

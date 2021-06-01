@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.hrms.business.abstracts.JobSeekerService;
 import com.api.hrms.business.abstracts.UserService;
 import com.api.hrms.core.email.EmailControl.concretes.EmailControl;
 import com.api.hrms.core.email.EmailDomainControl.EmailDomainControl;
@@ -28,14 +29,12 @@ public class userController {
 	private UserService userservice;
 	@Autowired
 	public userController(UserService userService) {
+		super();
 		this.userservice = userService;
 	}
 	
 	
-	@PostMapping("/addJobSeekerUser")
-	public Result addUser(@RequestBody job_seeker_users user){
-		return this.userservice.addJobSeekerUser(user, new EmailRegex(), new EmailControl(userservice), new IdentityControl(), new mernisControl(),new PasswordControl());
-	}
+	
 	
 	@GetMapping("/allUsers")
 	public List<user> allUsers() {
@@ -44,7 +43,7 @@ public class userController {
 	
 	@PostMapping("/addEmployerUsers")
 	public Result addUser(@RequestBody employer_users user) {
-		return this.userservice.addEmployerUser(user, new EmailRegex(), new EmailControl(userservice), new EmailDomainControl(),new PasswordControl());
+		return this.userservice.addEmployerUser(user, new EmailRegex(), new EmailControl(), new EmailDomainControl(),new PasswordControl());
 	}
 
 	

@@ -31,15 +31,11 @@ public class UserManager implements UserService{
 
 	
 	private UserDao userdao;
-	private JobSeekerDao jobseekerdao;
-	private EmployerDao employerDao;
 	
 	@Autowired
-	public UserManager(UserDao userDao,JobSeekerDao jobseekerdao,EmployerDao employerDao) {
+	public UserManager(UserDao userDao) {
 		super();
 		this.userdao = userDao;
-		this.jobseekerdao = jobseekerdao;
-		this.employerDao = employerDao;
 	}
 	
 	
@@ -58,46 +54,12 @@ public class UserManager implements UserService{
 			return new ErrorDataResult<user>("Şifreler eşleşmiyor");
 		}
 		else {
-			this.userdao.save(user);
-			this.employerDao.save(user);
+			
 			return new SuccessDataResult<user>("Kayıt Tamamlandı", user);
 		}
 	}
 
-	@Override
-	public Result addJobSeekerUser(job_seeker_users user, EmailRegex regexControl,EmailControl emailControl, IdentityControl identityControl,mernisControl mernisControl,PasswordControl passwordControl) {
-		
-		if(!user.getEmail().equals("") && !user.getFirstName().equals("") && !user.getIdentityNumber().equals("") && !user.getLastName().equals("") && !user.getBirtOfDate().equals(null) &&
-			!user.getPassword().equals("") && !user.getRepassword().equals("")){
-			
-			if(regexControl.Control(user.getEmail()) == false) {
-				return new ErrorDataResult<>("Belirtilen e-posta adresi geçersiz.");
-			}
-			else if(emailControl.EmailControl(user.getEmail()) == false) {
-				return new ErrorDataResult<user>("Belirtilen e-posta adresi başka kullanıcı tarafından kullanılıyor.",user);
-			}
-			else if(!identityControl.IdentityControl(user.getIdentityNumber())) {
-				return new ErrorDataResult<>("Belirtilen TC Kimlik Numarası başkası tarafından kullanılıyor");
-			}
-			else if(!mernisControl.MernisKimlikNuKontrol(user.getIdentityNumber(), user.getFirstName(), user.getLastName(), user.getBirtOfDate())) {
-				return new ErrorDataResult<>("Bilgilerinizi kontrol edin.Tc kimlik numarasına sahip insan bulunamadı.");
-			}
-			else if(!passwordControl.PasswordControlAbs(user.getPassword(), user.getRepassword())) {
-				return new ErrorDataResult<user>("Şifreler eşleşmiyor");
-			}
-			else {
-				this.userdao.save(user);
-				this.jobseekerdao.save(user);
-				return new SuccessDataResult<user>("Kayıt Tamamlandı", user);
-			}
-			
-			
-		}
-		else {
-			return new ErrorDataResult<>("Tüm alanlar zorunludur.");
-		}
-		
-		}
+	
 	
 	@Override
 	public Result addSystemUser(system_users user,PasswordControl passwordControl) {
